@@ -9,13 +9,47 @@
     <script src="javascript.js" defer></script>
 </head>
 
+<!-- Body:Container -->
+
 <body class="page">
-    <div class="page__container">
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Aside -->
         <aside class="sidebar">
             <div class="sidebar__banner">
                 <div class="sidebar__text">ODIN</div>
             </div>
+            <!-- Carousel -->
+            <div class="carousel" data-carousel>
+                <!-- Button:Left -->
+                <button class="carousel-button previous" data-carousel-button="previous">
+                    &#10094;
+                </button>
+                <div class="slides" data-slides>
+                    <div class="slide" data-active>
+                        <img src="./assets/image1.gif" alt="Slide 1" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/image2.gif" alt="Slide 2" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/image3.gif" alt="Slide 3" />
+                    </div>
+                </div>
+                <!-- Button:Right -->
+                <button class="carousel-button next" data-carousel-button="next">
+                    &#10095;
+                </button>
+                <!-- Carousel: Navigation -->
+                <nav class="carousel__nav">
+                    <button class="carousel__indicator current-slide"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                </nav>
         </aside>
+        <!-- Main:Container -->
         <main class="main">
             <header class="main__header">
                 <p class="main__text">
