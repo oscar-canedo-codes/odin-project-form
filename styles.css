@@ -36,14 +36,10 @@ body {
 
 /* Aside */
 .sidebar {
-  /* Background */
-  background-image: url("assets/splash_citrus.jpg");
-  background-size: cover;
-  background-position: center;
-
   /* Dimension */
   display: flex;
-  flex: 0 0 30%;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
 
   /* Layout */
@@ -52,6 +48,11 @@ body {
   align-items: center;
   top: 0;
   z-index: 1;
+
+  /* Background */
+  background-image: url("assets/splash_citrus.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .sidebar__banner {
@@ -88,6 +89,8 @@ body {
 
 .carousel {
   position: relative;
+  align-self: flex-end;
+  margin: 10em 2em 0 2em;
   width: 100%;
   max-width: 300px;
   height: 250px;
@@ -130,17 +133,19 @@ body {
 
 .carousel-button.next {
   right: 10px;
+  border-radius: 10px;
 }
 .carousel-button.previous {
   left: 10px;
+  border-radius: 10px;
 }
 
 .carousel__nav {
-  display: flex;
+  display: absolute;
+  position: absolute;
   justify-content: center;
   padding: 10px 0;
   gap: 0.5rem;
-  position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
@@ -230,6 +235,27 @@ body {
   text-transform: uppercase;
   color: var(--olive);
 }
+/* Validation: Success */
+.form__success-icon {
+  display: none;
+  color: var(--green);
+  margin-left: 0.5rem;
+}
+
+.form__input.form__input--valid ~ .form__success-icon {
+  display: block;
+}
+/* Validation: Error */
+.form__error {
+  display: none;
+  color: var(--orange);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.form__input.form__input--invalid ~ .form__error {
+  display: block;
+}
 
 .form__input {
   padding: 0.5rem;
@@ -239,7 +265,7 @@ body {
 }
 
 .form__input--focus {
-  border-color: var(--olive);
+  border-color: var(--yellow);
   box-shadow: 0 0 5px rgba(89, 109, 72, 0.5);
   outline: none;
 }
