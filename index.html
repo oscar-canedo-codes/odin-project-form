@@ -9,13 +9,46 @@
     <script src="javascript.js" defer></script>
 </head>
 
+<!-- Body:Container -->
+
 <body class="page">
-    <div class="page__container">
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Aside -->
         <aside class="sidebar">
             <div class="sidebar__banner">
                 <div class="sidebar__text">ODIN</div>
             </div>
+            <!-- Carousel -->
+            <div class="carousel" data-carousel>
+                <!-- Button:Left -->
+                <button class="carousel-button previous" data-carousel-button="previous">
+                    &#10094;
+                </button>
+                <!-- Slides: Active (Default) -->
+                <div class="slides" data-slides>
+                    <div class="slide" data-active>
+                        <img src="./assets/image1.gif" alt="Slide 1" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/image2.gif" alt="Slide 2" />
+                    </div>
+                    <div class="slide">
+                        <img src="./assets/image3.gif" alt="Slide 3" />
+                    </div>
+                </div>
+                <!-- Button:Right -->
+                <button class="carousel-button next" data-carousel-button="next">
+                    &#10095;
+                </button>
+                <!-- Carousel: Navigation -->
+                <nav class="carousel__nav">
+                    <button class="carousel__indicator current-slide"></button>
+                    <button class="carousel__indicator"></button>
+                    <button class="carousel__indicator"></button>
+                </nav>
         </aside>
+        <!-- Main:Container -->
         <main class="main">
             <header class="main__header">
                 <p class="main__text">
@@ -25,40 +58,50 @@
                 </p>
                 <p class="main__text">You <em>know</em> you want to.</p>
             </header>
+            <!-- Form:Name/Surname -->
             <form class="form" action="#" method="post">
                 <fieldset class="form__fieldset">
                     <legend class="form__legend">Let's do this!</legend>
+                    <!-- Form:Name -->
                     <div class="form__row">
                         <div class="form__field">
                             <label class="form__label" for="first-name">First Name</label>
-                            <input class="form__input" type="text" id="first-name" name="first-name" required />
+                            <input class="form__input" type="text" id="first-name" name="first-name" required
+                                minlength="5" maxlength="20" />
+                            <span class="form__error"></span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="last-name">Last Name</label>
                             <input class="form__input" type="text" id="last-name" name="last-name" required />
+                            <span class="form__error"></span>
                         </div>
                     </div>
-
+                    <!-- Form: Email/Phone -->
                     <div class="form__row">
                         <div class="form__field">
                             <label class="form__label" for="email">Email</label>
                             <input class="form__input" type="email" id="email" name="email" required />
+                            <span class="form__error" data-error></span>
+                            <span class="form__success-icon" data-success-icon></span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="phone">Phone Number</label>
-                            <input class="form__input" type="tel" id="phone" name="phone" />
+                            <input class="form__input" type="tel" id="phone" name="phone" required maxlength="15" />
+                            <span class="form__error"></span>
                         </div>
                     </div>
-
+                    <!-- Form: Password -->
                     <div class="form__row">
                         <div class="form__field">
                             <label class="form__label" for="password">Password</label>
                             <input class="form__input" type="password" id="password" name="password" required />
+                            <span class="form__error"></span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="confirm-password">Confirm Password</label>
                             <input class="form__input" type="password" id="confirm-password" name="confirm_password"
                                 required />
+                            <span class="form__error"></span>
                         </div>
                     </div>
                 </fieldset>
