@@ -68,12 +68,14 @@
                             <label class="form__label" for="first-name">First Name</label>
                             <input class="form__input" type="text" id="first-name" name="first-name" required
                                 minlength="5" maxlength="20" />
-                            <span class="form__error"></span>
+                            <span class="form__error" data-error="first-name-error"></span>
+                            <span class="form__success-icon" data-success-icon="first-name-success">✔️ Cool name</span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="last-name">Last Name</label>
                             <input class="form__input" type="text" id="last-name" name="last-name" required />
-                            <span class="form__error"></span>
+                            <span class="form__error" data-error="last-name-error"></span>
+                            <span class="form__success-icon" data-success-icon="last-name-success"></span>
                         </div>
                     </div>
                     <!-- Form: Email/Phone -->
@@ -81,13 +83,15 @@
                         <div class="form__field">
                             <label class="form__label" for="email">Email</label>
                             <input class="form__input" type="email" id="email" name="email" required />
-                            <span class="form__error" data-error></span>
-                            <span class="form__success-icon" data-success-icon></span>
+                            <span class="form__error" data-error="email-error"></span>
+                            <span class="form__success-icon" data-success-icon="email-success">✔️ Valid email
+                                address</span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="phone">Phone Number</label>
                             <input class="form__input" type="tel" id="phone" name="phone" required maxlength="15" />
-                            <span class="form__error"></span>
+                            <span class="form__error" data-error="phone-error"></span>
+                            <span class="form__success-icon" data-success-icon="phone-success"></span>
                         </div>
                     </div>
                     <!-- Form: Password -->
@@ -95,13 +99,15 @@
                         <div class="form__field">
                             <label class="form__label" for="password">Password</label>
                             <input class="form__input" type="password" id="password" name="password" required />
-                            <span class="form__error"></span>
+                            <span class="form__error" data-error="password-error"></span>
+                            <span class="form__success-icon" data-success-icon="password-success"></span>
                         </div>
                         <div class="form__field">
                             <label class="form__label" for="confirm-password">Confirm Password</label>
                             <input class="form__input" type="password" id="confirm-password" name="confirm_password"
                                 required />
-                            <span class="form__error"></span>
+                            <span class="form__error" data-error="confirm-password-error"></span>
+                            <span class="form__success-icon" data-success-icon="confirm-password-success"></span>
                         </div>
                     </div>
                 </fieldset>

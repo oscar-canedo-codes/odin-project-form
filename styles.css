@@ -242,9 +242,13 @@ body {
   margin-left: 0.5rem;
 }
 
-.form__input.form__input--valid ~ .form__success-icon {
-  display: block;
+.form__input.form__input--valid
+  ~ [data-success-icon="first-name-success"]
+  ˜
+  ~ [data-error="email-success"] {
+  display: inline-block;
 }
+
 /* Validation: Error */
 .form__error {
   display: none;
@@ -253,7 +257,10 @@ body {
   margin-top: 0.2rem;
 }
 
-.form__input.form__input--invalid ~ .form__error {
+.form__input.form__input--invalid
+  ~ [data-error="first-name-error"]
+  ˜
+  ~ [data-error="email-error"] {
   display: block;
 }
 
