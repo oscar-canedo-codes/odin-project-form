@@ -93,11 +93,88 @@ document.addEventListener("DOMContentLoaded", function () {
             autoSlideInterval = setInterval(autoAdvanceSlides, 5000);
         });
 
-    /* Email Validation */
-    const emailInput = document.getElementById("email");
+
+    /* Validation: Names */
+
+    /* First Name */
+    const firstNameInput = document.getElementById("first-name");
+
+    /* Last Name */
+    const lastNameInput = document.getElementById("last-name");
+
     /* SELECT DATA ATTRIBUTES */
-    const emailError = document.querySelector("[data-error]");
-    const emailSuccessIcon = document.querySelector("[data-success-icon]");
+
+    /* First Name */
+    const firstNameError = document.querySelector("[data-error='first-name-error']");
+    const firstNameSuccessIcon = document.querySelector("[data-success-icon='first-name-success']");
+
+    /* Last Name */
+    const lastNameError = document.querySelector("[data-error='last-name-error']");
+    const lastNameSuccessIcon = document.querySelector("[data-success-icon='last-name-success']");
+
+    // Debugging Logs
+    console.log("First Name Input:", firstNameInput);
+    console.log("First Name Error:", firstNameError);
+    console.log("First Name Success Icon:", firstNameSuccessIcon);
+
+    if (!firstNameError) {
+        console.error("firstNameError element not found");
+    }
+
+    if (!firstNameSuccessIcon) {
+        console.error("firstNameSuccessIcon element not found");
+    }
+
+    /* EVENT HANDLER: First Name Input */
+    firstNameInput.addEventListener("input", () => {
+        // CAPTURE value from email input field
+        const firstNameValue = firstNameInput.value;
+
+        // PASS value to validation function
+        const isFirstNameValid = validateFirstName(firstNameValue);
+
+
+        //CHECK result of validation
+        if (isFirstNameValid) {
+            // IF valid, ADD valid class, UPDATE error message, and SHOW success icon
+            firstNameInput.classList.add("form__input--valid");
+            firstNameInput.classList.remove("form__input--invalid");
+            firstNameError.textContent = "✔️ Nice name";
+            firstNameError.style.display = "none";
+            firstNameSuccessIcon.style.display = "inline-block";
+        } else {
+            //IF invalid, ADD invalid class, UPDATE error message, and HIDE success icon
+            firstNameInput.classList.add("form__input--invalid");
+            firstNameInput.classList.remove("form__input--valid");
+            firstNameError.textContent = "𝘅 You sure that's right?";
+            firstNameError.style.display = "block";
+            firstNameSuccessIcon.style.display = "none";
+        }
+    });
+
+    // FUNCTION: VALIDATE firstName
+    const validateFirstName = (firstName) => {
+        const firstNameRegex = /^[a-z ,.'-]+$/i;
+
+        // TEST email string against REGEX and STORE result
+        const isFirstNameValid = firstNameRegex.test(firstName);
+
+        // LOG the result of validation
+        console.log("First Name validation result:", isFirstNameValid);
+
+        // RETURN the result of the validation
+        return isFirstNameValid;
+    };
+
+    /* Validation: Email */
+
+
+    // SELECT input element
+    const emailInput = document.getElementById("email");
+
+    /* SELECT DATA ATTRIBUTES */
+    const emailError = document.querySelector("[data-error='email-error']");
+    const emailSuccessIcon = document.querySelector("[data-success-icon='email-success']");
 
     /* Event Handler: Email Input */
     emailInput.addEventListener("input", () => {
@@ -118,14 +195,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // IF valid, ADD valid class, UPDATE error message, and SHOW success icon
             emailInput.classList.add("form__input--valid");
             emailInput.classList.remove("form__input--invalid");
-            emailError.textContent = "✔️ Valid email address";
+            emailError.textContent = "";
             emailError.style.display = "none";
             emailSuccessIcon.style.display = "inline-block";
         } else {
             //IF invalid, ADD invalid class, UPDATE error message, and HIDE success icon
             emailInput.classList.add("form__input--invalid");
             emailInput.classList.remove("form__input--valid");
-            emailError.textContent = "Invalid email address";
+            emailError.textContent = "𝘅 Invalid email address";
             emailError.style.display = "block";
             emailSuccessIcon.style.display = "none";
         }
